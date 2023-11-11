@@ -6,8 +6,11 @@
 // Fourth author - ID : Shrouk Tarek Ibrahim / 20210175
 // Under The Supervision of: Dr. Soha Makady
 
+import Application.InstitoSystem;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        InstitoSystem system = new InstitoSystem();
+        system.displayMenu();
     }
 }
