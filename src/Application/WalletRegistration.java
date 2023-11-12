@@ -31,6 +31,8 @@ public class WalletRegistration extends Registration{
             System.out.println("It is not a strong password, please enter a strong password:");
             password = sc.nextLine();
         }
+        //check validation of credit card
+        //then if true we send otp to check mobile number
 
     }
 }

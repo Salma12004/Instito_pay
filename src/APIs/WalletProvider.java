@@ -1,7 +1,7 @@
 package APIs;
 
-public interface BankAPI {
-    public Boolean checkExistence();
+public interface WalletProvider {
+    public Boolean checkExistence(String mobileNumber);
 
     public void decreaseAmount(double amount);
 
