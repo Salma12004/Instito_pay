@@ -1,11 +1,12 @@
 package User;
-
 import java.util.Scanner;
-
 import APIs.VodafoneCashProvider;
 import Application.Validator;
 
 public class UserBank extends User {
+
+    private String bankAccountNumber;
+
     void chooseTransaction(){ 
         System.out.println("Choose Transaction");
         System.out.println("1. Transfer to Wallet");
@@ -43,6 +44,7 @@ public class UserBank extends User {
             if (vodafoneCashProvider.checkExistence(walletNumber)) {
                 vodafoneCashProvider.increaseAmount(amount);
                 //decrease amount from bank account
+                
             }
             else{
                 System.out.println("This wallet number does not exist");

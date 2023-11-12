@@ -16,9 +16,5 @@ public class UserInfo {
     UserInfo getInfo(String key){
         return new UserInfo(Map.of(key, this.Info.get(key)));
     }
-
-    
-
-   
     
 }

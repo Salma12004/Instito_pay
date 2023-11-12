@@ -2,11 +2,17 @@ package Application;
 import java.util.*;
 import java.util.Scanner;
 
-import User.UserDB;
+// import User.UserDB;
 
 
 public class InstitoSystem {
-    UserDB userDB;
+    // UserDB userDB;
+
+    public InstitoSystem() {
+        // this.userDB = new UserDB();
+        //load dummy data
+
+    }
 
     private void LoginForm(){
         System.out.println("Enter your username");
@@ -15,15 +21,15 @@ public class InstitoSystem {
         System.out.println("Enter your password");
         String password = sc.nextLine();
         Login login = new Login(userName,password);
-        if(login.checkLogin(userDB)){
-            System.out.println("Login successfully");
-        }
-        else{
-            System.out.println("Invalid username or password");
-        }
+        // if(login.checkLogin(userDB)){
+        //     System.out.println("Login successfully");
+        // }
+        // else{
+        //     System.out.println("Invalid username or password");
+        // }
 
     }
-    void chooseRegisterionType(int choice){
+    private void chooseRegisterionType(int choice){
         if(choice==1){
             Bankregistration bank = new Bankregistration();
             bank.register();
@@ -36,7 +42,7 @@ public class InstitoSystem {
             System.out.println("Invalid choice");
         }
     }
-    private void RegisterForm(){
+    public void RegisterForm(){
         System.out.println("Do you want to register using 1.bank account 2.wallet provider ");
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();

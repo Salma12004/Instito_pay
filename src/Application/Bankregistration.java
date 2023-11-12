@@ -91,9 +91,6 @@ public class Bankregistration extends Registration{
                   
                 }
             }
-        }
-
-      
-       
+        } 
     }
 }
