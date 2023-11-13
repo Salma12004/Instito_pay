@@ -15,9 +15,6 @@ public class App {
         InstitoSystem system = new InstitoSystem();
         system.displayMenu();
         
-        // system.bankMisr.print();
-        // System.out.println(system.bankMisr.checkExistence("01005181038", "1234567891234567"));
-
         // //check existence in vodafone
         // System.out.println(system.vodafoneCashProvider.checkExistence("01002509990"));
         // //check existence in etisalat

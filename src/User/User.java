@@ -4,15 +4,17 @@ import java.util.Scanner;
 import Bill.Transaction;
 
 public abstract class User {
-    private String name;
-    private String mobileNumber;
-    private String password;
-    private Transaction transaction;
+    protected String name;
+    protected String mobileNumber;
+    protected String password;
+    protected String creditCard;
+    protected Transaction transaction;
 
-    public User(String name, String mobileNumber, String password) {
+    public User(String name, String mobileNumber, String password, String creditCard) {
         this.name = name;
         this.mobileNumber = mobileNumber;
         this.password = password;
+        this.creditCard = creditCard;
     }
 
     public void setTransaction(Transaction transaction) {
@@ -21,6 +23,14 @@ public abstract class User {
 
     public void performTransefer(){
         transaction.transfer(this);
+    };
+
+    public String getCreditCard(){
+        return creditCard;
+    }
+
+    public String getmobileNumber() {
+        return mobileNumber;
     }
 
     // abstract void payPill(){

@@ -1,7 +1,4 @@
 package User;
-import java.util.Scanner;
-import APIs.VodafoneCashProvider;
-import Application.Validator;
 
 public class UserBank extends User {
 
@@ -9,9 +6,13 @@ public class UserBank extends User {
     private String bankName;
 
     public UserBank( String name, String mobileNumber, String password, String creditCard, String bankName) {
-        super(name,mobileNumber,password);
-        this.creditCard = creditCard;
+        super(name,mobileNumber,password,creditCard);
         this.bankName = bankName;
+    }
+
+
+    public String getBankName(){
+        return bankName;
     }
 
     public void payBills(){

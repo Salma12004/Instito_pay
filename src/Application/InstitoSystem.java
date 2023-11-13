@@ -1,13 +1,5 @@
 package Application;
-import java.util.*;
 import java.util.Scanner;
-import APIs.Bank;
-import APIs.BankCIB;
-import APIs.BankMisr;
-import APIs.EtisalatCashProvider;
-import APIs.VodafoneCashProvider;
-import User.User;
-import User.UserBank;
 import User.UserDB;
 
 
@@ -38,12 +30,13 @@ public class InstitoSystem {
 
     private void LoginForm(){
         System.out.println("Enter your username");
-        Scanner sc = new Scanner(System.in);
-        String userName = sc.nextLine();
-        System.out.println("Enter your password");
-        String password = sc.nextLine();
-        Login login = new Login(userName,password);
-        login.login();
+        try (Scanner sc = new Scanner(System.in)) {
+            String userName = sc.nextLine();
+            System.out.println("Enter your password");
+            String password = sc.nextLine();
+            Login login = new Login(userName,password);
+            login.login();
+        }
 
         // displayUserMenu(login.user);
         
@@ -65,40 +58,11 @@ public class InstitoSystem {
 
     private void RegisterForm(){
         System.out.println("Do you want to register using 1.bank account 2.wallet provider ");
-        Scanner sc = new Scanner(System.in);
-        int choice = sc.nextInt();
-        chooseRegisterionType(choice);
+        try (Scanner sc = new Scanner(System.in)) {
+            int choice = sc.nextInt();
+            chooseRegisterionType(choice);
+        }
     }
-
-    // private void displayUserMenu(User user){
-    //     System.out.println("Welcome ");
-    //     System.out.println("1-Transfer");
-    //     System.out.println("2-Pay bills");
-    //     System.out.println("3-Check balance");
-    //     Scanner sc = new Scanner(System.in);
-    //     int choice = sc.nextInt();
-    //     if(choice==1){
-    //         System.out.println("Choose Transaction");
-    //         System.out.println("1. Transfer to Wallet");
-    //         System.out.println("2. Transfer to Instito Account");
-    //         if(user instanceof UserBank){
-    //             System.out.println("3. Transfer to Bank Account");
-    //         }
-    //         int transType=sc.nextInt();
-
-
-    //     }
-    //     else if(choice==2){
-    //         // user.payBills();
-    //     }
-    //     else if(choice==3){
-    //         // user.checkBalance();
-    //     }
-    //     else{
-    //         System.out.println("Invalid choice");
-    //     }
-
-    // }
 
     public void displayMenu() {
         while(true){
@@ -107,24 +71,25 @@ public class InstitoSystem {
             System.out.println("2-Register");
             System.out.println("3-Exit");
             System.out.println("4-Print users");
-            Scanner sc = new Scanner(System.in);
-            int choice = sc.nextInt();
-            if(choice==1){
-                LoginForm();
-                // displayUserMenu();
-            }
-            else if(choice==2){
-                RegisterForm();
-            }
-            else if(choice==3){
-                break;
-            }
-            else if(choice==4){
-                UserDB.getInstance().printBankUsers();
-                UserDB.getInstance().printWalletUsers();
-            }
-            else{
-                System.out.println("Invalid choice");
+            try (Scanner sc = new Scanner(System.in)) {
+                int choice = sc.nextInt();
+                if(choice==1){
+                    LoginForm();
+                    // displayUserMenu();
+                }
+                else if(choice==2){
+                    RegisterForm();
+                }
+                else if(choice==3){
+                    break;
+                }
+                else if(choice==4){
+                    UserDB.getInstance().printBankUsers();
+                    UserDB.getInstance().printWalletUsers();
+                }
+                else{
+                    System.out.println("Invalid choice");
+                }
             }
         }
     }

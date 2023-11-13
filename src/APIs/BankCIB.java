@@ -34,11 +34,11 @@ public class BankCIB {
 
     }
 
-    public void decreaseAmount(String mobileNumber , String creditCard, double amount) {
-        String searchString = mobileNumber.trim() + " " + creditCard.trim();
+    public void decreaseAmount(String creditCard, double amount) {
+        String searchString =creditCard.trim();
         int index = -1;
         for (int i = 0; i < BankCIBUsers.size(); i++) {
-            if (BankCIBUsers.get(i).startsWith(searchString)) {
+            if (BankCIBUsers.get(i).contains(searchString)) {
                 index = i;
                 break;
             }
@@ -60,11 +60,11 @@ public class BankCIB {
             System.out.println("User not found with the provided mobile number and credit card combination.");
         }
     }
-    public void increaseAmount(String mobileNumber, String creditCard, double amount) {
-        String searchString = mobileNumber.trim() + " " + creditCard.trim();
+    public void increaseAmount(String creditCard, double amount) {
+        String searchString = creditCard.trim();
         int index = -1;
         for (int i = 0; i < BankCIBUsers.size(); i++) {
-            if (BankCIBUsers.get(i).startsWith(searchString)) {
+            if (BankCIBUsers.get(i).contains(searchString)) {
                 index = i;
                 break;
             }
@@ -78,6 +78,8 @@ public class BankCIB {
         } else {
             System.out.println("User not found with the provided mobile number and credit card combination.");
         }
+
+        
     }
     public void print(){
         for (String string : BankCIBUsers) {

@@ -31,16 +31,15 @@ public class BankMisr implements Bank {
         return false;
     }
 
-    public void decreaseAmount(String mobileNumber , String creditCard, double amount) {
-        String searchString = mobileNumber.trim() + " " + creditCard.trim();
+    public void decreaseAmount(String creditCard, double amount) {
+        String searchString = creditCard.trim();
         int index = -1;
         for (int i = 0; i < BankMisrUsers.size(); i++) {
-            if (BankMisrUsers.get(i).startsWith(searchString)) {
+            if (BankMisrUsers.get(i).contains(searchString)) {
                 index = i;
                 break;
             }
         }
-
         if (index >= 0) {
             String[] arr = BankMisrUsers.get(index).split(" ");
             double currentAmount = Double.parseDouble(arr[2]);
@@ -57,11 +56,11 @@ public class BankMisr implements Bank {
             System.out.println("User not found with the provided mobile number and credit card combination.");
         }
     }
-    public void increaseAmount(String mobileNumber, String creditCard, double amount) {
-        String searchString = mobileNumber.trim() + " " + creditCard.trim();
+    public void increaseAmount(String creditCard, double amount) {
+        String searchString = creditCard.trim();
         int index = -1;
         for (int i = 0; i < BankMisrUsers.size(); i++) {
-            if (BankMisrUsers.get(i).startsWith(searchString)) {
+            if (BankMisrUsers.get(i).contains(searchString)) {
                 index = i;
                 break;
             }
@@ -71,14 +70,14 @@ public class BankMisr implements Bank {
             double currentAmount = Double.parseDouble(arr[2]);
             currentAmount += amount;
             BankMisrUsers.set(index, arr[0] + " " + arr[1] + " " + currentAmount);
-            System.out.println("Transaction successful. New balance: " + currentAmount);
-        } else {
+            System.out.println("Transaction successful. Remaining balance: " + currentAmount);
+        } 
+        else {
             System.out.println("User not found with the provided mobile number and credit card combination.");
         }
+       
     }
     
-    
-
     public void print(){
         for (String string : BankMisrUsers) {
             System.out.println(string);

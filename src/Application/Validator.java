@@ -16,10 +16,11 @@ public class Validator {
     }
     
     public Boolean enterOTP(int OTP){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the OTP sent to your mobile number");
-        int enteredOTP = sc.nextInt();
-        return OTP == enteredOTP;
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Enter the OTP sent to your mobile number");
+            int enteredOTP = sc.nextInt();
+            return OTP == enteredOTP;
+        }
     }
     
     public Boolean checkValidNumber(String mobileNumber){
