@@ -1,9 +1,13 @@
 package User;
 
+import java.util.Scanner;
+import Bill.Transaction;
+
 public abstract class User {
     private String name;
     private String mobileNumber;
     private String password;
+    private Transaction transaction;
 
     public User(String name, String mobileNumber, String password) {
         this.name = name;
@@ -11,13 +15,17 @@ public abstract class User {
         this.password = password;
     }
 
-    void verify(){}
-    abstract void chooseTransaction();
-    abstract void transferToWallet();
-    abstract void transferToInstitoAcc();
-    void payPill(){
-
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
     }
+
+    public void performTransefer(){
+        transaction.transfer(this);
+    }
+
+    // abstract void payPill(){
+
+    // }
 
     
 }

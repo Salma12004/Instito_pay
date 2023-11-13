@@ -2,30 +2,30 @@ package APIs;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EtislatCashProvider implements WalletProvider{
+public class EtisalatCashProvider implements WalletProvider{
 
-    private static  EtislatCashProvider instance;
+    private static  EtisalatCashProvider instance;
 
-    public static EtislatCashProvider getInstance() {
+    public static EtisalatCashProvider getInstance() {
         if (instance == null) {
-            instance = new EtislatCashProvider();
+            instance = new EtisalatCashProvider();
         }
         return instance;
     }
     
-    List<String> EtislatCashUsers =  new ArrayList<String>();
+    List<String> EtisalatCashUsers =  new ArrayList<String>();
     
-    public EtislatCashProvider() {
-        EtislatCashUsers.add("01105182020 50000");
-        EtislatCashUsers.add("01112502010 10000");
-        EtislatCashUsers.add("01102501223 20000");
-        EtislatCashUsers.add("01112509990 30000");
-        EtislatCashUsers.add("01122204090 40000");
+    public EtisalatCashProvider() {
+        EtisalatCashUsers.add("01105182020 50000");
+        EtisalatCashUsers.add("01112502010 10000");
+        EtisalatCashUsers.add("01102501223 20000");
+        EtisalatCashUsers.add("01112509990 30000");
+        EtisalatCashUsers.add("01122204090 40000");
     }
 
     public Boolean checkExistence(String mobileNumber) {
         String key = mobileNumber.trim();
-        for (String user : EtislatCashUsers) {
+        for (String user : EtisalatCashUsers) {
             if (user.startsWith(key)) {
                 return true;
             }
@@ -36,18 +36,18 @@ public class EtislatCashProvider implements WalletProvider{
     public void decreaseAmount(String number,double amount) {
         String searchString = number.trim();
         int index = -1;
-        for (int i = 0; i < EtislatCashUsers.size(); i++) {
-            if (EtislatCashUsers.get(i).startsWith(searchString)) {
+        for (int i = 0; i < EtisalatCashUsers.size(); i++) {
+            if (EtisalatCashUsers.get(i).startsWith(searchString)) {
                 index = i;
                 break;
             }
         }
         if (index >= 0) {
-            String[] arr = EtislatCashUsers.get(index).split(" ");
+            String[] arr = EtisalatCashUsers.get(index).split(" ");
             double currentAmount = Double.parseDouble(arr[1]);
             if (currentAmount >= amount) {
                 currentAmount -= amount;
-                EtislatCashUsers.set(index, arr[0] + " " + currentAmount);
+                EtisalatCashUsers.set(index, arr[0] + " " + currentAmount);
                 System.out.println("Transaction successful. Remaining balance: " + currentAmount);
             } else {
                 System.out.println("Insufficient funds.");
@@ -61,17 +61,17 @@ public class EtislatCashProvider implements WalletProvider{
     public void increaseAmount(String number,double amount) {
         String searchString = number.trim();
         int index = -1;
-        for (int i = 0; i < EtislatCashUsers.size(); i++) {
-            if (EtislatCashUsers.get(i).startsWith(searchString)) {
+        for (int i = 0; i < EtisalatCashUsers.size(); i++) {
+            if (EtisalatCashUsers.get(i).startsWith(searchString)) {
                 index = i;
                 break;
             }
         }
         if (index >= 0) {
-            String[] arr = EtislatCashUsers.get(index).split(" ");
+            String[] arr = EtisalatCashUsers.get(index).split(" ");
             double currentAmount = Double.parseDouble(arr[1]);
             currentAmount += amount;
-            EtislatCashUsers.set(index, arr[0] + " " + currentAmount);
+            EtisalatCashUsers.set(index, arr[0] + " " + currentAmount);
             System.out.println("Transaction successful. New balance: " + currentAmount);
          }
         else {
@@ -79,7 +79,7 @@ public class EtislatCashProvider implements WalletProvider{
         }
     } 
     public void print() {
-        for (String user : EtislatCashUsers) {
+        for (String user : EtisalatCashUsers) {
             System.out.println(user);
         }
     }

@@ -1,5 +1,7 @@
 package User;
 
+import java.util.Scanner;
+
 public class UserWallet extends User {
 
     private String walletName;
@@ -10,8 +12,5 @@ public class UserWallet extends User {
     }
     
     
-    void chooseTransaction(){}
-    void transferToWallet(){}
-    void transferToInstitoAcc(){}
 
 }

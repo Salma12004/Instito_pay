@@ -26,7 +26,6 @@ public class BankCIB {
     public Boolean checkExistence( String mobileNumber , String creditCard) {
         String key = mobileNumber.trim() + " " + creditCard.trim();
         for (String user : BankCIBUsers) {
-            // Check if the user contains the provided mobileNumber and creditCard
             if (user.startsWith(key)) {
                 return true;
             }

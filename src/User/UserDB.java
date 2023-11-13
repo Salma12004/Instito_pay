@@ -27,20 +27,37 @@ public class UserDB {
         usersWalletDB.add(name + " " + mobileNumber + " " + password + " " + walletName);
     }
 
-    public boolean checkExistence(String mobileNumber){
+    public int checkExistence(String userName, String password){
         for (String user : usersBankDB) {
-            String[] userArray = user.split(" ");
-            if (userArray[1].equals(mobileNumber)) {
-                return true;
+            String[] userArr = user.split(" ");
+            if(userArr[0].equals(userName) && userArr[2].equals(password)){
+                return 1;
             }
         }
         for (String user : usersWalletDB) {
-            String[] userArray = user.split(" ");
-            if (userArray[1].equals(mobileNumber)) {
-                return true;
+            String[] userArr = user.split(" ");
+            if(userArr[0].equals(userName) && userArr[2].equals(password)){
+                return 2;
             }
         }
-        return false;
+        return 0;
+    }
+
+    public String[] getUserInfo(String userName, String password){
+        for (String user : usersBankDB) {
+            String[] userArr = user.split(" ");
+            if(userArr[0].equals(userName) && userArr[2].equals(password)){
+                return userArr;
+            }
+        }
+        for (String user : usersWalletDB) {
+            String[] userArr = user.split(" ");
+            if(userArr[0].equals(userName) && userArr[2].equals(password)){
+                return userArr;
+            }
+        }
+        return null;
+        
     }
   
     

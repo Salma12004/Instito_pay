@@ -14,7 +14,7 @@ public class Validator {
         Random random = new Random();
         return random.nextInt(999999);
     }
-
+    
     public Boolean enterOTP(int OTP){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the OTP sent to your mobile number");

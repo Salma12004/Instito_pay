@@ -4,7 +4,7 @@ import java.util.Scanner;
 import APIs.Bank;
 import APIs.BankCIB;
 import APIs.BankMisr;
-import APIs.EtislatCashProvider;
+import APIs.EtisalatCashProvider;
 import APIs.VodafoneCashProvider;
 import User.User;
 import User.UserBank;
@@ -12,10 +12,6 @@ import User.UserDB;
 
 
 public class InstitoSystem {
-    // public BankMisr bankMisr=BankMisr.getInstance();
-    // public BankCIB bankCIB=BankCIB.getInstance();
-    // public EtislatCashProvider etislatCashProvider=EtislatCashProvider.getInstance();
-    // public VodafoneCashProvider vodafoneCashProvider=VodafoneCashProvider.getInstance();
 
     private void loadDummyData(){
         UserDB.getInstance().addUserBank("Ahmed", "01005181038", "Ahmed123", "1234567891234567", "BankMisr");
@@ -31,9 +27,9 @@ public class InstitoSystem {
         UserDB.getInstance().addUserWallet("Mohamed", "01002502010", "Mohamed123", "VodafoneCash");
         UserDB.getInstance().addUserWallet("Ali", "01002501223", "Ali123", "VodafoneCash");
        
-        UserDB.getInstance().addUserWallet("Mahmoud", "01105182020", "Mahmoud123", "EtislatCash");
-        UserDB.getInstance().addUserWallet("Hassan", "01112502010", "Hassan123", "EtislatCash");
-        UserDB.getInstance().addUserWallet("Khaled", "01102501223", "Khaled123", "EtislatCash");
+        UserDB.getInstance().addUserWallet("Mahmoud", "01105182020", "Mahmoud123", "EtisalatCash");
+        UserDB.getInstance().addUserWallet("Hassan", "01112502010", "Hassan123", "EtisalatCash");
+        UserDB.getInstance().addUserWallet("Khaled", "01102501223", "Khaled123", "EtisalatCash");
     }
 
     public InstitoSystem() {
@@ -47,79 +43,16 @@ public class InstitoSystem {
         System.out.println("Enter your password");
         String password = sc.nextLine();
         Login login = new Login(userName,password);
+        login.login();
 
+        // displayUserMenu(login.user);
+        
     }
 
     private void chooseRegisterionType(int choice){
         if(choice==1){
-            // Bankregistration bank = new Bankregistration();
-            // bank.register();
-        Validator validator = new Validator();
-
-                    System.out.println("-----------------Bank registration-----------------");
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter name");
-        String name = sc.nextLine();
-
-        System.out.println("Enter mobile number");
-        String mobileNumber = sc.nextLine();
-        while(!validator.checkValidNumber(mobileNumber)){
-            System.out.println("It is not a valid mobile number, please enter a valid mobile number:");
-            mobileNumber = sc.nextLine();
-        }
-
-        System.out.println("Enter a strong password:");
-        System.out.println(" Here is a format of strong password: ");
-        System.out.println("1-Is at least 8 characters long and 12 max.\n2-Must include at least one uppercase and at least one lowercase letters\n3-Must include numbers and special symbols:");
-        String password = sc.nextLine();
-        while(!validator.checkStrongPassword(password)){
-            System.out.println("It is not a strong password, please enter a strong password:");
-            password = sc.nextLine();
-        }
-
-        int bankType;
-        System.out.println("Choose your bank:");
-        System.out.println("1-Bank Misr");
-        System.out.println("2-Bank CIB");
-        bankType = sc.nextInt();
-        while(bankType != 1 && bankType != 2){
-            System.out.println("Please enter a valid choice:");
-            bankType = sc.nextInt();
-        }
-        sc.nextLine();
-
-        System.out.println("Enter credit card number");
-        String creditCard = sc.nextLine();
-        while(!validator.checkValidCreditCard(creditCard)){
-            System.out.println("It is not a valid credit card number, please enter a valid credit card number:");
-            creditCard = sc.nextLine();
-        }
-        int OTP = validator.sentOTP();
-        System.out.println("OTP: " + OTP);
-        if(!validator.enterOTP(OTP)){
-            System.out.println("Invalid OTP");
-        }
-        else{
-            if(bankType == 1){
-                if(!BankMisr.getInstance().checkExistence(mobileNumber , creditCard)){
-                    System.out.println("This user does not exist in this bank");
-                }
-                else{
-                    User BankMisr_User= new UserBank(name,  mobileNumber,  password,  creditCard,  "BankMisr");
-                    UserDB.getInstance().addUserBank(name, mobileNumber, password, creditCard, "BankMisr");
-                }
-            }
-            else{
-                if(!BankCIB.getInstance().checkExistence(mobileNumber , creditCard)){
-                    System.out.println("This user does not exist in this bank");
-                }
-                else{
-                    User BankCIB_User= new UserBank(name,  mobileNumber,  password,  creditCard,  "BankCIB");
-                    UserDB.getInstance().addUserBank(name, mobileNumber, password, creditCard, "BankCIB");
-                      
-                }
-            } 
-        }
+            Bankregistration bank = new Bankregistration();
+            bank.register();
         }
         else if(choice==2){
             WalletRegistration wallet = new WalletRegistration();
@@ -137,16 +70,48 @@ public class InstitoSystem {
         chooseRegisterionType(choice);
     }
 
+    // private void displayUserMenu(User user){
+    //     System.out.println("Welcome ");
+    //     System.out.println("1-Transfer");
+    //     System.out.println("2-Pay bills");
+    //     System.out.println("3-Check balance");
+    //     Scanner sc = new Scanner(System.in);
+    //     int choice = sc.nextInt();
+    //     if(choice==1){
+    //         System.out.println("Choose Transaction");
+    //         System.out.println("1. Transfer to Wallet");
+    //         System.out.println("2. Transfer to Instito Account");
+    //         if(user instanceof UserBank){
+    //             System.out.println("3. Transfer to Bank Account");
+    //         }
+    //         int transType=sc.nextInt();
+
+
+    //     }
+    //     else if(choice==2){
+    //         // user.payBills();
+    //     }
+    //     else if(choice==3){
+    //         // user.checkBalance();
+    //     }
+    //     else{
+    //         System.out.println("Invalid choice");
+    //     }
+
+    // }
+
     public void displayMenu() {
         while(true){
             System.out.println("Welcome to InstitoPay System");
             System.out.println("1-Login");
             System.out.println("2-Register");
             System.out.println("3-Exit");
+            System.out.println("4-Print users");
             Scanner sc = new Scanner(System.in);
             int choice = sc.nextInt();
             if(choice==1){
                 LoginForm();
+                // displayUserMenu();
             }
             else if(choice==2){
                 RegisterForm();

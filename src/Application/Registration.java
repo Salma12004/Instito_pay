@@ -16,15 +16,19 @@ public abstract class Registration {
     }
 
     public void setMobileNumber(String mobileNumber) {
-        if (validator.checkValidNumber(mobileNumber)) {
-            this.mobileNumber = mobileNumber;
+        while(!validator.checkValidNumber(mobileNumber)) {
+            System.out.println("Please enter a valid mobile number:");
+            mobileNumber = System.console().readLine();
         }
+        this.mobileNumber = mobileNumber;
     }
 
     public void setPassword(String password) {
-        if (validator.checkStrongPassword(password)) {
-            this.password = password;
+        while (!validator.checkStrongPassword(password)) {
+            System.out.println("It is not a strong password, please enter a strong password:");
+            password = System.console().readLine();
         }
+        this.password = password;
     }
 
     public String getName() {
