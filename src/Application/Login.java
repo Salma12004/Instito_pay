@@ -46,7 +46,7 @@ public class Login {
         else if(type==2){
             System.out.println("Login successful");
             String [] userInfo = UserDB.getInstance().getUserInfo(userName, password);
-            User user = new UserWallet(userInfo[0],userInfo[1],userInfo[2],userInfo[3],userInfo[4]);
+            User user = new UserWallet(userInfo[0],userInfo[1],userInfo[2],userInfo[3]);
             setUser(user);
            
         }
@@ -89,7 +89,6 @@ public class Login {
 
                         System.out.println("Invalid choice");
                     }
-
                     user.performTransefer();
                     break;
                 case 2:
