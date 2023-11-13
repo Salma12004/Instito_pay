@@ -24,8 +24,13 @@ public class VodafoneCashProvider implements WalletProvider{
     }
 
     public Boolean checkExistence(String mobileNumber) {
-        String Key = mobileNumber;
-        return VodafoneCashUsers.contains(Key);
+        String key = mobileNumber.trim();
+        for (String user : VodafoneCashUsers) {
+            if (user.startsWith(key)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void decreaseAmount(String number,double amount) {
@@ -72,6 +77,11 @@ public class VodafoneCashProvider implements WalletProvider{
         else {
             System.out.println("User not found with the provided mobile number and credit card combination.");
         }
-    }   
+    } 
+    public void print() {
+        for (String user : VodafoneCashUsers) {
+            System.out.println(user);
+        }
+    }  
     
 }

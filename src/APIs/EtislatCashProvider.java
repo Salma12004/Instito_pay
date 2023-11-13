@@ -24,8 +24,13 @@ public class EtislatCashProvider implements WalletProvider{
     }
 
     public Boolean checkExistence(String mobileNumber) {
-        String Key = mobileNumber;
-        return EtislatCashUsers.contains(Key);
+        String key = mobileNumber.trim();
+        for (String user : EtislatCashUsers) {
+            if (user.startsWith(key)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void decreaseAmount(String number,double amount) {
@@ -73,4 +78,9 @@ public class EtislatCashProvider implements WalletProvider{
             System.out.println("User not found with the provided mobile number and credit card combination.");
         }
     } 
+    public void print() {
+        for (String user : EtislatCashUsers) {
+            System.out.println(user);
+        }
+    }
 }

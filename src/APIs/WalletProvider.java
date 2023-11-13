@@ -6,5 +6,7 @@ public interface WalletProvider {
     public void decreaseAmount(String number,double amount);
 
     public void increaseAmount(String number,double amount);
+
+    public void print();
     
 }

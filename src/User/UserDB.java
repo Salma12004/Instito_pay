@@ -8,6 +8,16 @@ public class UserDB {
     List<String> usersBankDB =  new ArrayList<String>();
     List<String> usersWalletDB =  new ArrayList<String>();
 
+    //singleton
+    private static UserDB instance;
+
+    public static UserDB getInstance() {
+        if (instance == null) {
+            instance = new UserDB();
+        }
+        return instance;
+    }
+
     //name,  mobileNumber,  password,  creditCard,  "Bank Misr"
     public void addUserBank(String name, String mobileNumber, String password, String creditCard, String bankName){
         usersBankDB.add(name + " " + mobileNumber + " " + password + " " + creditCard + " " + bankName);
@@ -34,7 +44,17 @@ public class UserDB {
     }
   
     
+    public void printBankUsers(){
+        for (String user : usersBankDB) {
+            System.out.println(user);
+        }
+    }
 
+    public void printWalletUsers(){
+        for (String user : usersWalletDB) {
+            System.out.println(user);
+        }
+    }
 
 
 
