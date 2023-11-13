@@ -1,48 +1,48 @@
 package APIs;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class VodafoneCashProvider implements WalletProvider{
-    //singletone
-    private static  VodafoneCashProvider instance;
+public class EtislatCashProvider implements WalletProvider{
 
-    public static VodafoneCashProvider getInstance() {
+    private static  EtislatCashProvider instance;
+
+    public static EtislatCashProvider getInstance() {
         if (instance == null) {
-            instance = new VodafoneCashProvider();
+            instance = new EtislatCashProvider();
         }
         return instance;
     }
-
-    List<String> VodafoneCashUsers =  new ArrayList<String>();
-    public VodafoneCashProvider() {
-        VodafoneCashUsers.add("01005182020 50000");
-        VodafoneCashUsers.add("01002502010 10000");
-        VodafoneCashUsers.add("01002501223 20000");
-        VodafoneCashUsers.add("01002509990 30000");
-        VodafoneCashUsers.add("01002204090 40000");
+    
+    List<String> EtislatCashUsers =  new ArrayList<String>();
+    
+    public EtislatCashProvider() {
+        EtislatCashUsers.add("01105182020 50000");
+        EtislatCashUsers.add("01112502010 10000");
+        EtislatCashUsers.add("01102501223 20000");
+        EtislatCashUsers.add("01112509990 30000");
+        EtislatCashUsers.add("01122204090 40000");
     }
 
     public Boolean checkExistence(String mobileNumber) {
         String Key = mobileNumber;
-        return VodafoneCashUsers.contains(Key);
+        return EtislatCashUsers.contains(Key);
     }
 
     public void decreaseAmount(String number,double amount) {
         String searchString = number.trim();
         int index = -1;
-        for (int i = 0; i < VodafoneCashUsers.size(); i++) {
-            if (VodafoneCashUsers.get(i).startsWith(searchString)) {
+        for (int i = 0; i < EtislatCashUsers.size(); i++) {
+            if (EtislatCashUsers.get(i).startsWith(searchString)) {
                 index = i;
                 break;
             }
         }
         if (index >= 0) {
-            String[] arr = VodafoneCashUsers.get(index).split(" ");
+            String[] arr = EtislatCashUsers.get(index).split(" ");
             double currentAmount = Double.parseDouble(arr[1]);
             if (currentAmount >= amount) {
                 currentAmount -= amount;
-                VodafoneCashUsers.set(index, arr[0] + " " + currentAmount);
+                EtislatCashUsers.set(index, arr[0] + " " + currentAmount);
                 System.out.println("Transaction successful. Remaining balance: " + currentAmount);
             } else {
                 System.out.println("Insufficient funds.");
@@ -56,22 +56,21 @@ public class VodafoneCashProvider implements WalletProvider{
     public void increaseAmount(String number,double amount) {
         String searchString = number.trim();
         int index = -1;
-        for (int i = 0; i < VodafoneCashUsers.size(); i++) {
-            if (VodafoneCashUsers.get(i).startsWith(searchString)) {
+        for (int i = 0; i < EtislatCashUsers.size(); i++) {
+            if (EtislatCashUsers.get(i).startsWith(searchString)) {
                 index = i;
                 break;
             }
         }
         if (index >= 0) {
-            String[] arr = VodafoneCashUsers.get(index).split(" ");
+            String[] arr = EtislatCashUsers.get(index).split(" ");
             double currentAmount = Double.parseDouble(arr[1]);
             currentAmount += amount;
-            VodafoneCashUsers.set(index, arr[0] + " " + currentAmount);
+            EtislatCashUsers.set(index, arr[0] + " " + currentAmount);
             System.out.println("Transaction successful. New balance: " + currentAmount);
          }
         else {
             System.out.println("User not found with the provided mobile number and credit card combination.");
         }
-    }   
-    
+    } 
 }

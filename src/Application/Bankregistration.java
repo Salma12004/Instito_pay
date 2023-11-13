@@ -3,8 +3,11 @@ import java.util.Scanner;
 
 import APIs.BankCIB;
 import APIs.BankMisr;
+import User.User;
+import User.UserBank;
 
 import java.util.Scanner;
+
 
 public class Bankregistration extends Registration{
     private String creditCard;
@@ -71,7 +74,13 @@ public class Bankregistration extends Registration{
                     System.out.println("Invalid OTP");
                 }
                 else{
+                    User BankMisr_User= new UserBank(name,  mobileNumber,  password,  creditCard,  "BankMisr");
+                    
                   
+
+                    
+                    // UserDB newUser = new UserDB();
+                    // newUser = newUser.ADDUser(name , password, mobileNumber, creditCard, name, "VodafoneCash");
                 }
 
             }

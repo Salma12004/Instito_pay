@@ -1,14 +1,17 @@
 package User;
 
 public abstract class User {
-    // protected UserInfo userInfo;
+    private String name;
+    private String mobileNumber;
+    private String password;
 
-
-
-    void verify(){
-
+    public User(String name, String mobileNumber, String password) {
+        this.name = name;
+        this.mobileNumber = mobileNumber;
+        this.password = password;
     }
 
+    void verify(){}
     abstract void chooseTransaction();
     abstract void transferToWallet();
     abstract void transferToInstitoAcc();

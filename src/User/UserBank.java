@@ -5,7 +5,14 @@ import Application.Validator;
 
 public class UserBank extends User {
 
-    private String bankAccountNumber;
+    private String creditCard;
+    private String bankName;
+
+    public UserBank( String name, String mobileNumber, String password, String creditCard, String bankName) {
+        super(name,mobileNumber,password);
+        this.creditCard = creditCard;
+        this.bankName = bankName;
+    }
 
     void chooseTransaction(){ 
         System.out.println("Choose Transaction");
@@ -42,7 +49,7 @@ public class UserBank extends User {
         if(choice == 1){
             VodafoneCashProvider vodafoneCashProvider = new VodafoneCashProvider();
             if (vodafoneCashProvider.checkExistence(walletNumber)) {
-                vodafoneCashProvider.increaseAmount(amount);
+                // vodafoneCashProvider.increaseAmount(amount);
                 //decrease amount from bank account
                 
             }
