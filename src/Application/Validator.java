@@ -4,9 +4,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Validator {
-    // public Boolean uniqueName(String name){
-
-    // }
+    public Boolean uniqueName(String name){
+        Pattern validNamePattern = Pattern.compile("[a-zA-Z]{3,}");
+        if (validNamePattern.matcher(name).matches()) {
+            
+        }
+        return true;
+    }
 
     public Boolean checkStrongPassword(String password){
         Pattern validPasswordPattern = Pattern.compile("(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[#!%$‘&\\\\+\\\\*\\\\–\\\\/=?^_`{|}\\\\.~])[a-zA-Z0-9#!%$‘&\\\\+\\\\*\\\\–\\\\/=?^_`{|}\\\\.~]{8,12}");
