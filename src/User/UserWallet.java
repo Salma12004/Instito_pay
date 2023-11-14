@@ -17,6 +17,15 @@ public class UserWallet extends User {
     public String getWalletName(){
         return walletName;
     }
+    public double getBalance() {
+        if (walletName.equals("VodafoneCash")) {
+            return VodafoneCashProvider.getInstance().getAmount(mobileNumber);
+        }
+        else if (walletName.equals("EtisalatCash")) {
+            return EtisalatCashProvider.getInstance().getAmount(mobileNumber);
+        }
+        return 0;
+    }
     public void payBills()
     {
         System.out.println("Choose the bill type");
@@ -66,4 +75,5 @@ public class UserWallet extends User {
             System.out.println("Invalid Input");
         }
     }
+
 }

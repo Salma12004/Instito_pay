@@ -19,7 +19,25 @@ public class BankMisr implements Bank {
         }
         return instance;
     }
-    
+    public double getAmount(String creditcard){
+        String searchString = creditcard.trim();
+        int index = -1;
+        for (int i = 0; i < BankMisrUsers.size(); i++) {
+            if (BankMisrUsers.get(i).contains(searchString)) {
+                index = i;
+                break;
+            }
+        }
+        if (index >= 0) {
+            String[] arr = BankMisrUsers.get(index).split(" ");
+            double currentAmount = Double.parseDouble(arr[2]);
+            return currentAmount;
+        } 
+        else {
+            System.out.println("User not found with the provided mobile number and credit card combination.");
+            return -1;
+        }
+    }
     public Boolean checkExistence(String mobileNumber, String creditCard) {
         String key = mobileNumber.trim() + " " + creditCard.trim();
         for (String user : BankMisrUsers) {
@@ -75,7 +93,6 @@ public class BankMisr implements Bank {
         else {
             System.out.println("User not found with the provided mobile number and credit card combination.");
         }
-       
     }
     
     public void print(){
@@ -83,5 +100,4 @@ public class BankMisr implements Bank {
             System.out.println(string);
         }
     }
-      
 }

@@ -67,7 +67,15 @@ public class UserBank extends User {
         else {
             System.out.println("Invalid Input");
         }
-        
+    }
+    public double getBalance(){
+        if (bankName.equals("BankMisr")) {
+            return BankMisr.getInstance().getAmount(creditCard);
+        }
+        else if (bankName.equals("BankCIB")) {
+            return BankCIB.getInstance().getAmount(creditCard);
+        }
+        return 0;
     }
     public String getCreditCard(){
         return creditCard;

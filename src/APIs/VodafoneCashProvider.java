@@ -22,6 +22,25 @@ public class VodafoneCashProvider implements WalletProvider{
         VodafoneCashUsers.add("01002509990 30000");
         VodafoneCashUsers.add("01002204090 40000");
     }
+    public double getAmount(String mobileNumber){
+        String searchString = mobileNumber.trim();
+        int index = -1;
+        for (int i = 0; i < VodafoneCashUsers.size(); i++) {
+            if (VodafoneCashUsers.get(i).startsWith(searchString)) {
+                index = i;
+                break;
+            }
+        }
+        if (index >= 0) {
+            String[] arr = VodafoneCashUsers.get(index).split(" ");
+            double currentAmount = Double.parseDouble(arr[1]);
+            return currentAmount;
+        } 
+        else {
+            System.out.println("User not found with the provided mobile number and credit card combination.");
+            return -1;
+        }
+    }
 
     public Boolean checkExistence(String mobileNumber) {
         String key = mobileNumber.trim();
@@ -73,7 +92,7 @@ public class VodafoneCashProvider implements WalletProvider{
             currentAmount += amount;
             VodafoneCashUsers.set(index, arr[0] + " " + currentAmount);
             System.out.println("Transaction successful. New balance: " + currentAmount);
-         }
+        }
         else {
             System.out.println("User not found with the provided mobile number and credit card combination.");
         }

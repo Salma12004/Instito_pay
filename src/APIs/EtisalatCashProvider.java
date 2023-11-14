@@ -83,4 +83,23 @@ public class EtisalatCashProvider implements WalletProvider{
             System.out.println(user);
         }
     }
+    public double getAmount(String mobile){
+        String searchString = mobile.trim();
+        int index = -1;
+        for (int i = 0; i < EtisalatCashUsers.size(); i++) {
+            if (EtisalatCashUsers.get(i).startsWith(searchString)) {
+                index = i;
+                break;
+            }
+        }
+        if (index >= 0) {
+            String[] arr = EtisalatCashUsers.get(index).split(" ");
+            double currentAmount = Double.parseDouble(arr[1]);
+            return currentAmount;
+        }
+        else {
+            System.out.println("User not found with the provided mobile number and credit card combination.");
+            return 0;
+        }
+    }
 }

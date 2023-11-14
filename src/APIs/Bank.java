@@ -7,7 +7,9 @@ public interface Bank {
     public void decreaseAmount(String creditCard, double amount);
 
     public void increaseAmount(String creditCard, double amount);
-
+    
+    public double getAmount(String creditCard);
+    
     public void print();
     
 }

@@ -22,7 +22,25 @@ public class BankCIB {
         }
         return instance;
     }
-
+    public double getAmount(String credit){
+        String searchString = credit.trim();
+        int index = -1;
+        for (int i = 0; i < BankCIBUsers.size(); i++) {
+            if (BankCIBUsers.get(i).contains(searchString)) {
+                index = i;
+                break;
+            }
+        }
+        if (index >= 0) {
+            String[] arr = BankCIBUsers.get(index).split(" ");
+            double currentAmount = Double.parseDouble(arr[2]);
+            return currentAmount;
+        } 
+        else {
+            System.out.println("User not found with the provided mobile number and credit card combination.");
+            return -1;
+        }
+    }
     public Boolean checkExistence( String mobileNumber , String creditCard) {
         String key = mobileNumber.trim() + " " + creditCard.trim();
         for (String user : BankCIBUsers) {

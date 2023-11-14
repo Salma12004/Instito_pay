@@ -98,7 +98,8 @@ public class Login {
                     user.payBills();
                     break;
                 case 3:
-                    // user.checkBalance();
+                   double Useramount = user.getBalance();
+                     System.out.println("Your balance is: "+Useramount);
                     break;
                 default:
                     System.out.println("Invalid choice");

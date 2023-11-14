@@ -8,12 +8,12 @@
 
 import APIs.Bank;
 import APIs.BankMisr;
-import Application.InstitoSystem;
+import Application.InstoSystem;
 import User.UserDB;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        InstitoSystem system = new InstitoSystem();
+        InstoSystem system = new InstoSystem();
         system.displayMenu();
         
         // //check existence in vodafone

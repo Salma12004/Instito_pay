@@ -7,7 +7,6 @@ public class WaterCompany extends BillAPI {
     List <String> companies = new ArrayList<String>();
     public WaterCompany(){
         companies.add("ShroukWater 5678 9000");
-        
         companies.add("ShahdWater 1983 8000");
         companies.add("SalmaWater 9372 5000");
         companies.add("HabibaWater 4352 6000");

@@ -3,7 +3,7 @@ import java.util.Scanner;
 import User.UserDB;
 
 
-public class InstitoSystem {
+public class InstoSystem {
 
     private void loadDummyData(){
         UserDB.getInstance().addUserBank("Ahmed", "01005181038", "Ahmed123", "1234567891234567", "BankMisr");
@@ -24,7 +24,7 @@ public class InstitoSystem {
         UserDB.getInstance().addUserWallet("Marwan", "01102501223", "Khaled123", "EtisalatCash");
     }
 
-    public InstitoSystem() {
+    public InstoSystem() {
         loadDummyData();
     }
 

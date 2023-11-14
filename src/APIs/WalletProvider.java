@@ -7,6 +7,8 @@ public interface WalletProvider {
 
     public void increaseAmount(String number,double amount);
 
+    public double getAmount(String mobile);
+
     public void print();
     
 }
