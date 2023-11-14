@@ -31,9 +31,9 @@ public class BankTransaction implements Transaction{
         }
     }
 
-    private void transferToBankMisr(User user){
-        String creditCard = UserDB.getInstance().getUserInfo(user.getName(), user.getPassword())[3];
-        String bankName = UserDB.getInstance().getUserInfo(user.getName(), user.getPassword())[4];
+    public void transferToBankMisr(User user){
+        String creditCard = UserDB.getInstance().getUserInfo(user.getName())[3];
+        String bankName = UserDB.getInstance().getUserInfo(user.getName())[4];
 
         System.out.println("Please enter the mobile number of the user you want to transfer to");
         Scanner sc = new Scanner(System.in);
@@ -50,7 +50,7 @@ public class BankTransaction implements Transaction{
             System.out.println("Please enter the amount you want to transfer");
             double amount = sc.nextDouble();
             BankMisr.getInstance().increaseAmount(bankNumber,amount);
-        if (bankName.equals("Bank CIB")) {
+        if (bankName.equals("BankCIB")) {
             BankCIB.getInstance().decreaseAmount(creditCard,amount);
         }
         else{
@@ -60,9 +60,9 @@ public class BankTransaction implements Transaction{
             }
         }
     
-    private void transferToBankCIB(User user){
-        String creditCard = UserDB.getInstance().getUserInfo(user.getName(), user.getPassword())[3];
-        String bankName = UserDB.getInstance().getUserInfo(user.getName(), user.getPassword())[4];
+    public void transferToBankCIB(User user){
+        String creditCard = UserDB.getInstance().getUserInfo(user.getName())[3];
+        String bankName = UserDB.getInstance().getUserInfo(user.getName())[4];
         System.out.println("Please enter the mobile number of the user you want to transfer to");
         Scanner sc = new Scanner(System.in);
         String mobileNumber = sc.nextLine();
@@ -77,7 +77,7 @@ public class BankTransaction implements Transaction{
             System.out.println("Please enter the amount you want to transfer");
             double amount = sc.nextDouble();
             BankCIB.getInstance().increaseAmount(bankNumber,amount);
-        if (bankName.equals("Bank CIB")) {
+        if (bankName.equals("BankCIB")) {
             BankCIB.getInstance().decreaseAmount(creditCard,amount);
         }
         else{

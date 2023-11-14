@@ -73,7 +73,7 @@ public class EtisalatCashProvider implements WalletProvider{
             currentAmount += amount;
             EtisalatCashUsers.set(index, arr[0] + " " + currentAmount);
             System.out.println("Transaction successful. New balance: " + currentAmount);
-         }
+        }
         else {
             System.out.println("User not found with the provided mobile number and credit card combination.");
         }

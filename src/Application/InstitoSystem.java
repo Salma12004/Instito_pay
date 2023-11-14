@@ -15,8 +15,8 @@ public class InstitoSystem {
         UserDB.getInstance().addUserBank("Khaled", "01143332642", "Khaled123", "9456791234567120", "BankCIB");
 
 
-        UserDB.getInstance().addUserWallet("Ahmed", "01005182020", "Ahmed123", "VodafoneCash");
-        UserDB.getInstance().addUserWallet("Mohamed", "01002502010", "Mohamed123", "VodafoneCash");
+        UserDB.getInstance().addUserWallet("Shahd", "01005182020", "Ahmed123", "VodafoneCash");
+        UserDB.getInstance().addUserWallet("Mohamed2", "01002502010", "Mohamed123", "VodafoneCash");
         UserDB.getInstance().addUserWallet("Ali", "01002501223", "Ali123", "VodafoneCash");
        
         UserDB.getInstance().addUserWallet("Mahmoud", "01105182020", "Mahmoud123", "EtisalatCash");

@@ -43,16 +43,16 @@ public class UserDB {
         return 0;
     }
 
-    public String[] getUserInfo(String userName, String password){
+    public String[] getUserInfo(String userName){
         for (String user : usersBankDB) {
             String[] userArr = user.split(" ");
-            if(userArr[0].equals(userName) && userArr[2].equals(password)){
+            if(userArr[0].equals(userName)){
                 return userArr;
             }
         }
         for (String user : usersWalletDB) {
             String[] userArr = user.split(" ");
-            if(userArr[0].equals(userName) && userArr[2].equals(password)){
+            if(userArr[0].equals(userName)){
                 return userArr;
             }
         }

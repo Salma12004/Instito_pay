@@ -1,6 +1,9 @@
 package User;
 
 import java.util.Scanner;
+
+import APIs.EtisalatCashProvider;
+import APIs.VodafoneCashProvider;
 import PayBills.*;
 
 public class UserWallet extends User {
@@ -25,23 +28,42 @@ public class UserWallet extends User {
         if (billType.equals("1")) {
             Bill bill = new Electricity();
             bill.enterCode();
-            double ftora = bill.Pay();
+            double receipt = bill.Pay();
+            if (walletName.equals("VodafoneCash")) {
+                VodafoneCashProvider.getInstance().decreaseAmount(mobileNumber, receipt);
+            }
+            else if (walletName.equals("EtisalatCash")) {
+                EtisalatCashProvider.getInstance().decreaseAmount(mobileNumber, receipt);
+            }
             
         }
         else if (billType.equals("2")) {
             Bill bill = new Water();
             bill.enterCode();
             bill.chooseCompany();
+            double receipt = bill.Pay();
+            if (walletName.equals("VodafoneCash")) {
+                VodafoneCashProvider.getInstance().decreaseAmount(mobileNumber, receipt);
+            }
+            else if (walletName.equals("EtisalatCash")) {
+                EtisalatCashProvider.getInstance().decreaseAmount(mobileNumber, receipt);
+            }
         }
         else if (billType.equals("3")) {
             Bill bill = new Gaz();
             bill.enterCode();
             bill.chooseCompany();
+            double receipt = bill.Pay();
+            if (walletName.equals("VodafoneCash")) {
+                VodafoneCashProvider.getInstance().decreaseAmount(mobileNumber, receipt);
+            }
+            else if (walletName.equals("EtisalatCash")) {
+                EtisalatCashProvider.getInstance().decreaseAmount(mobileNumber, receipt);
+            }
         }
         
         else {
             System.out.println("Invalid Input");
         }
-        
     }
 }

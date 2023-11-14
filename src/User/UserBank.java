@@ -2,6 +2,8 @@ package User;
 
 import java.util.Scanner;
 
+import APIs.BankCIB;
+import APIs.BankMisr;
 import PayBills.*;
 
 public class UserBank extends User {
@@ -18,7 +20,7 @@ public class UserBank extends User {
         return bankName;
     }
 
-       public void payBills()
+    public void payBills()
     {
         System.out.println("Choose the bill type");
         System.out.println("1. Electricity Bill");
@@ -29,18 +31,37 @@ public class UserBank extends User {
         if (billType.equals("1")) {
             Bill bill = new Electricity();
             bill.enterCode();
-            double ftora = bill.Pay();
-            
+            double receipt = bill.Pay();
+            if (bankName.equals("BankMisr")) {
+                BankMisr.getInstance().decreaseAmount(creditCard, receipt);
+            }
+            else if (bankName.equals("BankCIB")) {
+                BankCIB.getInstance().decreaseAmount(creditCard, receipt);
+            }
         }
         else if (billType.equals("2")) {
             Bill bill = new Water();
             bill.enterCode();
             bill.chooseCompany();
+            double receipt = bill.Pay();
+            if (bankName.equals("BankMisr")) {
+                BankMisr.getInstance().decreaseAmount(creditCard, receipt);
+            }
+            else if (bankName.equals("BankCIB")) {
+                BankCIB.getInstance().decreaseAmount(creditCard, receipt);
+            }
         }
         else if (billType.equals("3")) {
             Bill bill = new Gaz();
             bill.enterCode();
             bill.chooseCompany();
+            double receipt = bill.Pay();
+            if (bankName.equals("BankMisr")) {
+                BankMisr.getInstance().decreaseAmount(creditCard, receipt);
+            }
+            else if (bankName.equals("BankCIB")) {
+                BankCIB.getInstance().decreaseAmount(creditCard, receipt);
+            }
         }
         
         else {

@@ -39,13 +39,13 @@ public class Login {
         int type = UserDB.getInstance().checkExistence(userName);
         if(type==1){
             System.out.println("Login successful");
-            String [] userInfo = UserDB.getInstance().getUserInfo(userName, password);
+            String [] userInfo = UserDB.getInstance().getUserInfo(userName);
             User user = new UserBank(userInfo[0],userInfo[1],userInfo[2],userInfo[3],userInfo[4]);
             setUser(user);
         }
         else if(type==2){
             System.out.println("Login successful");
-            String [] userInfo = UserDB.getInstance().getUserInfo(userName, password);
+            String [] userInfo = UserDB.getInstance().getUserInfo(userName);
             User user = new UserWallet(userInfo[0],userInfo[1],userInfo[2],userInfo[3]);
             setUser(user);
         }
