@@ -19,24 +19,24 @@ public class UserDB {
     }
 
     //name,  mobileNumber,  password,  creditCard,  "Bank Misr"
-    public void addUserBank(String name, String mobileNumber, String password, String creditCard, String bankName){
-        usersBankDB.add(name + " " + mobileNumber + " " + password + " " + creditCard + " " + bankName);
+    public void addUserBank(String name, String mobileNumber, String password, String creditCard, String bankName ){
+        usersBankDB.add(name + " " + mobileNumber + " " + password + " " + creditCard + " " + bankName + " " );
     }
     //name,  mobileNumber,  password,  creditCard,  "Vodafone Cash"
-    public void addUserWallet(String name, String mobileNumber, String password, String walletName){
-        usersWalletDB.add(name + " " + mobileNumber + " " + password + " " + walletName);
+    public void addUserWallet(String name, String mobileNumber, String password, String walletName ){
+        usersWalletDB.add(name + " " + mobileNumber + " " + password + " " + walletName + " " );
     }
 
-    public int checkExistence(String userName, String password){
+    public int checkExistence(String userName){
         for (String user : usersBankDB) {
             String[] userArr = user.split(" ");
-            if(userArr[0].equals(userName) && userArr[2].equals(password)){
+            if(userArr[0].equals(userName)){
                 return 1;
             }
         }
         for (String user : usersWalletDB) {
             String[] userArr = user.split(" ");
-            if(userArr[0].equals(userName) && userArr[2].equals(password)){
+            if(userArr[0].equals(userName)){
                 return 2;
             }
         }
@@ -60,7 +60,6 @@ public class UserDB {
         
     }
 
-    
     public void printBankUsers(){
         for (String user : usersBankDB) {
             System.out.println(user);
@@ -72,8 +71,4 @@ public class UserDB {
             System.out.println(user);
         }
     }
-
-
-
-
 }

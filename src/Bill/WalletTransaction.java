@@ -57,5 +57,4 @@ public class WalletTransaction implements Transaction {
             }
         }
     }
- 
 }

@@ -21,7 +21,7 @@ public class InstitoSystem {
        
         UserDB.getInstance().addUserWallet("Mahmoud", "01105182020", "Mahmoud123", "EtisalatCash");
         UserDB.getInstance().addUserWallet("Hassan", "01112502010", "Hassan123", "EtisalatCash");
-        UserDB.getInstance().addUserWallet("Khaled", "01102501223", "Khaled123", "EtisalatCash");
+        UserDB.getInstance().addUserWallet("Khaled2", "01102501223", "Khaled123", "EtisalatCash");
     }
 
     public InstitoSystem() {

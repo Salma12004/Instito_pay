@@ -9,7 +9,8 @@ public abstract class User {
     protected String password;
     protected Transaction transaction;
 
-    public User(String name, String mobileNumber, String password) {
+
+    public User(String name, String mobileNumber, String password ) {
         this.name = name;
         this.mobileNumber = mobileNumber;
         this.password = password;
@@ -35,9 +36,6 @@ public abstract class User {
         return name;
     }
 
-    // abstract void payPill(){
-
-    // }
-
+    public abstract void payBills();
     
 }

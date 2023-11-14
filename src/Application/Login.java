@@ -36,7 +36,7 @@ public class Login {
     }
 
     public void login(){
-        int type = UserDB.getInstance().checkExistence(userName, password);
+        int type = UserDB.getInstance().checkExistence(userName);
         if(type==1){
             System.out.println("Login successful");
             String [] userInfo = UserDB.getInstance().getUserInfo(userName, password);
@@ -48,7 +48,6 @@ public class Login {
             String [] userInfo = UserDB.getInstance().getUserInfo(userName, password);
             User user = new UserWallet(userInfo[0],userInfo[1],userInfo[2],userInfo[3]);
             setUser(user);
-           
         }
         else{
             System.out.println("Invalid username or password");
@@ -58,7 +57,7 @@ public class Login {
     }
 
     private void displayUserMenu(){
-        int type = UserDB.getInstance().checkExistence(userName, password);
+        int type = UserDB.getInstance().checkExistence(userName);
         System.out.println("Welcome ");
         System.out.println("1-Transfer");
         System.out.println("2-Pay bills");
@@ -84,15 +83,14 @@ public class Login {
                     
                     }else if (transType==3 && type==1) {//bank only
                         Transaction transaction = new BankTransaction();
-                        user.setTransaction(transaction);;
+                        user.setTransaction(transaction);
                     }else{
-
                         System.out.println("Invalid choice");
                     }
                     user.performTransefer();
                     break;
                 case 2:
-                    // user.payBills();
+                    user.payBills();
                     break;
                 case 3:
                     // user.checkBalance();
