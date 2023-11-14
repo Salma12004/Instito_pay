@@ -31,11 +31,11 @@ public class InstitoSystem {
     private void LoginForm(){
         System.out.println("Enter your username");
         Scanner sc = new Scanner(System.in);
-            String userName = sc.nextLine();
-            System.out.println("Enter your password");
-            String password = sc.nextLine();
-            Login login = new Login(userName,password);
-            login.login();
+        String userName = sc.nextLine();
+        System.out.println("Enter your password");
+        String password = sc.nextLine();
+        Login login = new Login(userName, password);
+        login.login();
         // displayUserMenu(login.user);
         
     }
@@ -56,10 +56,9 @@ public class InstitoSystem {
 
     private void RegisterForm(){
         System.out.println("Do you want to register using 1.bank account 2.wallet provider ");
-        try (Scanner sc = new Scanner(System.in)) {
-            int choice = sc.nextInt();
-            chooseRegisterionType(choice);
-        }
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        chooseRegisterionType(choice);
     }
 
     public void displayMenu() {
@@ -69,7 +68,8 @@ public class InstitoSystem {
             System.out.println("2-Register");
             System.out.println("3-Exit");
             System.out.println("4-Print users");
-            try (Scanner sc = new Scanner(System.in)) {
+            Scanner sc = new Scanner(System.in);
+            // try (Scanner sc = new Scanner(System.in)) {
                 int choice = sc.nextInt();
                 if(choice==1){
                     LoginForm();
@@ -87,7 +87,7 @@ public class InstitoSystem {
                 else{
                     System.out.println("Invalid choice");
                 }
-            }
+            // }
         }
     }
 

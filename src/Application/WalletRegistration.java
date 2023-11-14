@@ -14,7 +14,7 @@ public class WalletRegistration extends Registration{
     @Override
     public void register() {
         System.out.println("-----------------Wallet registration-----------------");
-        try (Scanner sc = new Scanner(System.in)) {
+        Scanner sc = new Scanner(System.in);
             int walletType;
             System.out.println("Choose your Wallet:");
             System.out.println("1-Vodafone Cash");
@@ -68,7 +68,6 @@ public class WalletRegistration extends Registration{
                     UserDB.getInstance().addUserWallet(name, mobileNumber, password, "EtisalatCash");
                 }
             }
-        } 
 
     }
 }

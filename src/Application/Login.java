@@ -63,47 +63,47 @@ public class Login {
             System.out.println("1-Transfer");
             System.out.println("2-Pay bills");
             System.out.println("3-Check balance");
-            try (Scanner sc = new Scanner(System.in)) {
-                int choice = sc.nextInt();
-                switch(choice){
-                    case 1:
-                        System.out.println("Choose Transaction");
-                        System.out.println("1. Transfer to Wallet");
-                        System.out.println("2. Transfer to Instito Account");
-                        if(type==1){
-                            System.out.println("3. Transfer to Bank Account");
-                        }
-                        System.out.println("0. Go Back");
-                        int transType=sc.nextInt();
+            Scanner sc = new Scanner(System.in);
+            int choice = sc.nextInt();
+            switch(choice){
+                case 1:
+                    System.out.println("Choose Transaction");
+                    System.out.println("1. Transfer to Wallet");
+                    System.out.println("2. Transfer to Instito Account");
+                    if(type==1){
+                        System.out.println("3. Transfer to Bank Account");
+                    }
+                    System.out.println("0. Go Back");
+                    int transType=sc.nextInt();
 
-                        if(transType==1){
-                            Transaction transaction = new WalletTransaction();
-                            user.setTransaction(transaction);;
-                        }else if (transType==2) {
-                            Transaction transaction = new InstitoTransaction();
-                            user.setTransaction(transaction);
-                        
-                        }else if (transType==3 && type==1) {//bank only
-                            Transaction transaction = new BankTransaction();
-                            user.setTransaction(transaction);
-                        }else if(transType == 0){
-                            break;
-                        }
-                        else{
-                            System.out.println("Invalid choice");
-                        }
-                        user.performTransefer();
+                    if(transType==1){
+                        Transaction transaction = new WalletTransaction();
+                        user.setTransaction(transaction);;
+                    }else if (transType==2) {
+                        Transaction transaction = new InstitoTransaction();
+                        user.setTransaction(transaction);
+                    
+                    }else if (transType==3 && type==1) {//bank only
+                        Transaction transaction = new BankTransaction();
+                        user.setTransaction(transaction);
+                    }else if(transType == 0){
                         break;
-                    case 2:
-                        user.payBills();
-                        break;
-                    case 3:
-                        // user.checkBalance();
-                        break;
-                    default:
+                    }
+                    else{
                         System.out.println("Invalid choice");
-                }
+                    }
+                    user.performTransefer();
+                    break;
+                case 2:
+                    user.payBills();
+                    break;
+                case 3:
+                    // user.checkBalance();
+                    break;
+                default:
+                    System.out.println("Invalid choice");
             }
+        
     }
     }
 }

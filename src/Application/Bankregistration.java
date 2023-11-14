@@ -29,7 +29,7 @@ public class Bankregistration extends Registration{
     @Override
     public void register() {
         System.out.println("-----------------Bank registration-----------------");
-        try (Scanner sc = new Scanner(System.in)) {
+        Scanner sc = new Scanner(System.in);
             int bankType;
             System.out.println("Choose your bank:");
             System.out.println("1-Bank Misr");
@@ -88,6 +88,5 @@ public class Bankregistration extends Registration{
                     UserDB.getInstance().addUserBank(name, mobileNumber, password, creditCard, "BankCIB");     
                 }
             }
-        } 
     }
 }

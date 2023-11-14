@@ -15,19 +15,18 @@ public class BankTransaction implements Transaction{
         System.out.println("Please choose the bank you want to transfer to");
         System.out.println("1- Bank Misr");
         System.out.println("2- Bank CIB");
-        try (Scanner sc = new Scanner(System.in)) {
-            int choice = sc.nextInt();
-            switch (choice) {
-                case 1:
-                    transferToBankMisr(user);
-                    break;
-                case 2:
-                    transferToBankCIB(user);
-                    break;
-                default:
-                    System.out.println("Invalid choice");
-                    break;
-            }
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        switch (choice) {
+            case 1:
+                transferToBankMisr(user);
+                break;
+            case 2:
+                transferToBankCIB(user);
+                break;
+            default:
+                System.out.println("Invalid choice");
+                break;
         }
     }
 
