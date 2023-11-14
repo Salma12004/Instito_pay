@@ -2,6 +2,7 @@ package User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 
 public class UserDB {
@@ -60,6 +61,28 @@ public class UserDB {
         
     }
 
+
+        public Boolean uniqueName(String name){
+            Pattern validNamePattern = Pattern.compile("[a-zA-Z]{3,}");
+            if (validNamePattern.matcher(name).matches()) {
+                for (String user : usersBankDB) {
+                    String[] userArr = user.split(" ");
+                    if(userArr[0].equals(name)){
+                        return false;
+                    }
+                }
+                for (String user : usersWalletDB) {
+                    String[] userArr = user.split(" ");
+                    if(userArr[0].equals(name)){
+                        return false;
+                    }
+                }
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     public void printBankUsers(){
         for (String user : usersBankDB) {
             System.out.println(user);

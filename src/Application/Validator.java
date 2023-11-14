@@ -1,15 +1,14 @@
 package Application;
 import java.util.regex.Pattern;
+
+import User.UserDB;
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class Validator {
-    public Boolean uniqueName(String name){
-        Pattern validNamePattern = Pattern.compile("[a-zA-Z]{3,}");
-        if (validNamePattern.matcher(name).matches()) {
-            
-        }
-        return true;
+    public Boolean checkuniqueName(String name){
+        return UserDB.getInstance().uniqueName(name);
     }
 
     public Boolean checkStrongPassword(String password){
@@ -39,5 +38,4 @@ public class Validator {
         Pattern validCreditCardPattern = Pattern.compile("[0-9]{16}");
         return validCreditCardPattern.matcher(creditCard).matches();
     }
-
 }

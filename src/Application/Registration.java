@@ -12,6 +12,10 @@ public abstract class Registration {
     }
 
     public void setName(String name) {
+        while(!validator.checkuniqueName(name)) {
+            System.out.println("Please enter a unique name:");
+            name = System.console().readLine();
+        }
         this.name = name;
     }
 

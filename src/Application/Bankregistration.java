@@ -42,7 +42,7 @@ public class Bankregistration extends Registration{
             sc.nextLine();
             System.out.println("Enter name");
             String name = sc.nextLine();
-
+            setName(name);
             System.out.println("Enter mobile number");
             String mobileNumber = sc.nextLine();
             setMobileNumber(mobileNumber);

@@ -27,7 +27,7 @@ public class WalletRegistration extends Registration{
             sc.nextLine();
             System.out.println("Enter name");
             String name = sc.nextLine();
-
+            setName(name);
             System.out.println("Enter mobile number");
             String mobileNumber = sc.nextLine();
             setMobileNumber(mobileNumber);
@@ -57,7 +57,6 @@ public class WalletRegistration extends Registration{
                     System.out.println("This user does not exist in this Wallet");
                 }
                 else{
-                    // User vodafonecash_User= new UserWallet(name,  mobileNumber,  password,  "VodafoneCash");
                     UserDB.getInstance().addUserWallet(name, mobileNumber, password, "VodafoneCash");
                 }
             }
@@ -66,7 +65,6 @@ public class WalletRegistration extends Registration{
                     System.out.println("This user does not exist in this Wallet");
                 }
                 else{
-                    // User etisalatcash_User= new UserWallet(name,  mobileNumber,  password,  "EtisalatCash");
                     UserDB.getInstance().addUserWallet(name, mobileNumber, password, "EtisalatCash");
                 }
             }
