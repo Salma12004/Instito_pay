@@ -99,7 +99,6 @@ public class VodafoneCashProvider implements WalletProvider{
             if (currentAmount >= amount) {
                 currentAmount -= amount;
                 VodafoneCashUsers.set(index, arr[0] + " " + currentAmount);
-                System.out.println("Transaction successful. Remaining balance: " + currentAmount);
             } else {
                 System.out.println("Insufficient funds.");
             }
@@ -129,7 +128,6 @@ public class VodafoneCashProvider implements WalletProvider{
             double currentAmount = Double.parseDouble(arr[1]);
             currentAmount += amount;
             VodafoneCashUsers.set(index, arr[0] + " " + currentAmount);
-            System.out.println("Transaction successful. New balance: " + currentAmount);
         }
         else {
             System.out.println("User not found with the provided mobile number and credit card combination.");

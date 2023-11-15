@@ -67,7 +67,6 @@ public class UserBank extends User {
         else if (billType.equals("2")) {
             Bill bill = new Water();
             bill.enterCode();
-            bill.chooseCompany();
             double receipt = bill.Pay();
             if (bankName.equals("BankMisr")) {
                 BankMisr.getInstance().decreaseAmount(creditCard, receipt);
@@ -79,7 +78,6 @@ public class UserBank extends User {
         else if (billType.equals("3")) {
             Bill bill = new Gaz();
             bill.enterCode();
-            bill.chooseCompany();
             double receipt = bill.Pay();
             if (bankName.equals("BankMisr")) {
                 BankMisr.getInstance().decreaseAmount(creditCard, receipt);

@@ -44,11 +44,13 @@ public class Validator {
      * @return True if the entered OTP is correct, false otherwise.
      */
     public Boolean enterOTP(int OTP){
-        try (Scanner sc = new Scanner(System.in)) {
+       // try (Scanner sc = new Scanner(System.in)) {
+            Scanner sc = new Scanner(System.in);
             System.out.println("Enter the OTP sent to your mobile number");
             int enteredOTP = sc.nextInt();
+            sc.nextLine();
             return OTP == enteredOTP;
-        }
+       // }
     }
     /**
      * Checks if the provided mobile number is valid.

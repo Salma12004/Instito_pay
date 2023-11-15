@@ -1,4 +1,7 @@
 package PayBills;
+
+import java.util.Scanner;
+
 /**
  * The Bill class represents an abstract bill for electronic payments.
  */
@@ -48,7 +51,9 @@ public abstract class Bill{
      */
     public void enterCode(){
         System.out.println("Enter your EPayment Code: ");
-        setEPaymentCode(System.console().readLine());
+        Scanner sc = new Scanner(System.in);
+        String code = sc.nextLine();
+        setEPaymentCode(code);
     }
     /**
      * Abstract method to perform the payment for the bill.

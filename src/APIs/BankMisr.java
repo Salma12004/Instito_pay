@@ -95,7 +95,6 @@ public class BankMisr implements Bank {
             if (currentAmount >= amount) {
                 currentAmount -= amount;
                 BankMisrUsers.set(index, arr[0] + " " + arr[1] + " " + currentAmount);
-                System.out.println("Transaction successful. Remaining balance: " + currentAmount);
             } 
             else {
                 System.out.println("Insufficient funds.");
@@ -126,7 +125,6 @@ public class BankMisr implements Bank {
             double currentAmount = Double.parseDouble(arr[2]);
             currentAmount += amount;
             BankMisrUsers.set(index, arr[0] + " " + arr[1] + " " + currentAmount);
-            System.out.println("Transaction successful. Remaining balance: " + currentAmount);
         } 
         else {
             System.out.println("User not found with the provided mobile number and credit card combination.");

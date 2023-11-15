@@ -71,7 +71,6 @@ public class EtisalatCashProvider implements WalletProvider{
             if (currentAmount >= amount) {
                 currentAmount -= amount;
                 EtisalatCashUsers.set(index, arr[0] + " " + currentAmount);
-                System.out.println("Transaction successful. Remaining balance: " + currentAmount);
             } else {
                 System.out.println("Insufficient funds.");
             }
@@ -102,7 +101,6 @@ public class EtisalatCashProvider implements WalletProvider{
             double currentAmount = Double.parseDouble(arr[1]);
             currentAmount += amount;
             EtisalatCashUsers.set(index, arr[0] + " " + currentAmount);
-            System.out.println("Transaction successful. New balance: " + currentAmount);
         }
         else {
             System.out.println("User not found with the provided mobile number and credit card combination.");

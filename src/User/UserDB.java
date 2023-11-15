@@ -98,7 +98,7 @@ public class UserDB {
      * @return True if the username is unique, false otherwise.
      */
     public Boolean uniqueName(String name){
-        Pattern validNamePattern = Pattern.compile("[a-zA-Z]{3,}");
+        Pattern validNamePattern = Pattern.compile("[a-zA-Z0-9]{3,}");
         if (validNamePattern.matcher(name).matches()) {
             for (String user : usersBankDB) {
                 String[] userArr = user.split(" ");

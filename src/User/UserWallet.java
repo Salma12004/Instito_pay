@@ -70,7 +70,6 @@ public class UserWallet extends User {
         else if (billType.equals("2")) {
             Bill bill = new Water();
             bill.enterCode();
-            bill.chooseCompany();
             double receipt = bill.Pay();
             if (walletName.equals("VodafoneCash")) {
                 VodafoneCashProvider.getInstance().decreaseAmount(mobileNumber, receipt);
@@ -82,7 +81,6 @@ public class UserWallet extends User {
         else if (billType.equals("3")) {
             Bill bill = new Gaz();
             bill.enterCode();
-            bill.chooseCompany();
             double receipt = bill.Pay();
             if (walletName.equals("VodafoneCash")) {
                 VodafoneCashProvider.getInstance().decreaseAmount(mobileNumber, receipt);

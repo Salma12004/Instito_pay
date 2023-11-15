@@ -26,7 +26,8 @@ public class Bankregistration extends Registration{
     public void setCreditCard(String creditCard) {
         while(!validator.checkValidCreditCard(creditCard)){
             System.out.println("It is not a valid credit card number, please enter a valid credit card number:");
-            creditCard = System.console().readLine();
+            Scanner sc = new Scanner(System.in);
+            creditCard = sc.nextLine();
         }
         this.creditCard = creditCard;
     }
@@ -69,7 +70,7 @@ public class Bankregistration extends Registration{
             System.out.println("1-Is at least 8 characters long and 12 max.\n2-Must include at least one uppercase and at least one lowercase letters\n3-Must include numbers and special symbols:");
             String password = sc.nextLine();
             setPassword(password);
-            
+
             System.out.println("Enter credit card number");
             String creditCard = sc.nextLine();
             setCreditCard(creditCard);
@@ -102,8 +103,9 @@ public class Bankregistration extends Registration{
                 }
                 else{
                     User BankCIB_User= new UserBank(name,  mobileNumber,  password,  creditCard,  "BankCIB");
-                    UserDB.getInstance().addUserBank(name, mobileNumber, password, creditCard, "BankCIB");     
+                    UserDB.getInstance().addUserBank(name, mobileNumber, password, creditCard, "BankCIB");
                 }
             }
+            //sc.nextLine();
     }
 }

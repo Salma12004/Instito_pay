@@ -82,34 +82,29 @@ public class InstoSystem {
      * registration, and exit options. It also provides an option to print all users.
      */
     public void displayMenu() {
-        while(true){
+        Scanner sc = new Scanner(System.in);
+        while (true) {
             System.out.println("Welcome to InstitoPay System");
             System.out.println("1-Login");
             System.out.println("2-Register");
             System.out.println("3-Exit");
-            System.out.println("4-Print users");
-            Scanner sc = new Scanner(System.in);
-            // try (Scanner sc = new Scanner(System.in)) {
+                //sc.nextLine();
                 int choice = sc.nextInt();
-                if(choice==1){
+                sc.nextLine();
+                //try (Scanner sc = new Scanner(System.in)) {
+                if (choice == 1) {
                     LoginForm();
-                }
-                else if(choice==2){
+                } else if (choice == 2) {
                     RegisterForm();
-                }
-                else if(choice==3){
+                } else if (choice == 3) {
                     break;
-                }
-                else if(choice==4){
-                    UserDB.getInstance().printBankUsers();
-                    UserDB.getInstance().printWalletUsers();
-                }
-                else{
+                }  else {
                     System.out.println("Invalid choice");
                 }
-        }
+            }
+            }
+
+
+
     }
-
-    
-
-}
+//}

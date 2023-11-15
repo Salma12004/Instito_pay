@@ -1,5 +1,7 @@
 package Application;
 import java.lang.System;
+import java.util.Scanner;
+
 /**
  * The Registration abstract class provides a common structure and functionality
  * for user registration in an application.
@@ -23,7 +25,8 @@ public abstract class Registration {
     public void setName(String name) {
         while(!validator.checkuniqueName(name)) {
             System.out.println("Please enter a unique name:");
-            name = System.console().readLine();
+            Scanner sc = new Scanner(System.in);
+            name = sc.nextLine();
         }
         this.name = name;
     }
@@ -35,7 +38,8 @@ public abstract class Registration {
     public void setMobileNumber(String mobileNumber) {
         while(!validator.checkValidNumber(mobileNumber)) {
             System.out.println("Please enter a valid mobile number:");
-            mobileNumber = System.console().readLine();
+            Scanner sc = new Scanner(System.in);
+            mobileNumber = sc.nextLine();
         }
         this.mobileNumber = mobileNumber;
     }
@@ -47,7 +51,8 @@ public abstract class Registration {
     public void setPassword(String password) {
         while (!validator.checkStrongPassword(password)) {
             System.out.println("It is not a strong password, please enter a strong password:");
-            password = System.console().readLine();
+            Scanner sc = new Scanner(System.in);
+            password = sc.nextLine();
         }
         this.password = password;
     }
