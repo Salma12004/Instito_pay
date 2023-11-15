@@ -1,5 +1,5 @@
 package User;
-import Bill.Transaction;
+import Transaction.Transaction;
 /**
  * The User class represents a user in the system.
  */

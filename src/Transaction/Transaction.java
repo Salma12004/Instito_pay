@@ -1,5 +1,4 @@
-package Bill;
-
+package Transaction;
 import User.User;
 
 /**

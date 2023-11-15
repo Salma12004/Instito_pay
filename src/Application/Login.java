@@ -1,9 +1,6 @@
 package Application;
 import java.util.Scanner;
-import Bill.BankTransaction;
-import Bill.InstitoTransaction;
-import Bill.Transaction;
-import Bill.WalletTransaction;
+import Transaction.*;
 import User.User;
 import User.UserBank;
 import User.UserDB;

@@ -1,4 +1,4 @@
-package Bill;
+package Transaction;
 
 import java.util.Scanner;
 
