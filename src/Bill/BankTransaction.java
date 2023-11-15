@@ -1,16 +1,22 @@
 package Bill;
 import java.util.Scanner;
 
-import APIs.Bank;
 import APIs.BankCIB;
 import APIs.BankMisr;
 
 import User.User;
-import User.UserBank;
 import User.UserDB;
 
-
+/**
+ * The BankTransaction class represents a transaction involving a transfer of funds between users and banks.
+ * It allows users to transfer money to other users' bank accounts in Bank Misr or Bank CIB.
+ */
 public class BankTransaction implements Transaction{
+    /**
+     * Performs a transfer from the user to a bank account in Bank Misr or Bank CIB.
+     *
+     * @param user The user initiating the transfer.
+     */
     public void transfer(User user ){
         System.out.println("Please choose the bank you want to transfer to");
         System.out.println("1- Bank Misr");
@@ -29,7 +35,11 @@ public class BankTransaction implements Transaction{
                 break;
         }
     }
-
+    /**
+     * Transfers funds from the user to a Bank Misr account.
+     *
+     * @param user The user initiating the transfer.
+     */
     public void transferToBankMisr(User user){
         String creditCard = UserDB.getInstance().getUserInfo(user.getName())[3];
         String bankName = UserDB.getInstance().getUserInfo(user.getName())[4];
@@ -58,7 +68,11 @@ public class BankTransaction implements Transaction{
             System.out.println("Transaction successful");
             }
         }
-    
+    /**
+     * Transfers funds from the user to a Bank CIB account.
+     *
+     * @param user The user initiating the transfer.
+     */
     public void transferToBankCIB(User user){
         String creditCard = UserDB.getInstance().getUserInfo(user.getName())[3];
         String bankName = UserDB.getInstance().getUserInfo(user.getName())[4];

@@ -4,12 +4,21 @@ import APIs.EtisalatCashProvider;
 import APIs.VodafoneCashProvider;
 import User.UserDB;
 
-
+/**
+ * The WalletRegistration class extends the Registration abstract class and provides
+ * specific registration logic for users in the context of digital wallets.
+ */
 public class WalletRegistration extends Registration{
-
+    /**
+     * Default constructor for the WalletRegistration class.
+     */
     public WalletRegistration() {
         super();
     }
+    /**
+     * Overrides the abstract register method to provide specific registration
+     * logic for wallet users.
+     */
 
     @Override
     public void register() {

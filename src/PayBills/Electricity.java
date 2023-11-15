@@ -3,14 +3,28 @@ package PayBills;
 import java.util.Scanner;
 
 import APIs.ElectricityCompany;
-
+/**
+ * The Electricity class represents a bill for electricity payments.
+ */
 public class Electricity extends Bill{
+    /**
+     * Allows the user to choose the electricity company for the bill.
+     *
+     * @return The name of the chosen electricity company.
+     */
+    @Override
     public String chooseCompany(){
         System.out.println("Enter company name: ");
         Scanner input = new Scanner(System.in);
         String name = input.nextLine();
         return name;
-}
+    }
+    /**
+     * Performs the payment for the electricity bill.
+     *
+     * @return The payment amount.
+     */
+    @Override
     public double Pay(){
         String name = chooseCompany();
         String code = getEPaymentCode();

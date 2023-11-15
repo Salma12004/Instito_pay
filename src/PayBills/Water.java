@@ -1,10 +1,17 @@
 package PayBills;
-
 import java.util.Scanner;
-import APIs.BillAPI;
 import APIs.WaterCompany;
 
+/**
+ * The Water class represents a bill for water payments.
+ */
 public class Water extends Bill{
+    /**
+     * Allows the user to choose the water company for the bill.
+     *
+     * @return The name of the chosen water company.
+     */
+    @Override
     public String chooseCompany(){
         System.out.println("Enter company name: ");
         Scanner input = new Scanner(System.in);
@@ -22,8 +29,14 @@ public class Water extends Bill{
         // else{
         //     System.out.println("You are not registered in this company");
         // }
-}
-  public double Pay(){
+    }
+    /**
+     * Performs the payment for the water bill.
+     *
+     * @return The payment amount.
+     */
+    @Override
+    public double Pay(){
         String name = chooseCompany();
         String code = getEPaymentCode();
         WaterCompany waterCompany = new WaterCompany();

@@ -1,6 +1,16 @@
 package Bill;
+
 import User.User;
 
+/**
+ * The Transaction interface provides a contract for implementing different types of transactions.
+ */
 public interface Transaction {
-    public void transfer( User user);
+
+    /**
+     * Performs a transfer as part of the specific transaction type.
+     *
+     * @param user The user involved in the transaction.
+     */
+    public void transfer(User user);
 }

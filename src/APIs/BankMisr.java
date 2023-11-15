@@ -3,11 +3,20 @@ package APIs;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * The BankMisr class represents a concrete implementation of the Bank interface
+ * specific to the Bank of Egypt (Bank Misr), providing methods to manage bank
+ * accounts and perform transactions.
+ */
 public class BankMisr implements Bank {
     private static  BankMisr instance;
     static List<String> BankMisrUsers =  new ArrayList<String>();
-    
+     /**
+     * Constructs a new BankMisr instance and initializes it with some sample user accounts.
+     * This method is also responsible for ensuring that only one instance of BankMisr is created.
+     *
+     * @return The BankMisr instance.
+     */
     public static BankMisr getInstance() {
         BankMisrUsers.add("01005181038 1234567891234567 50000");
         BankMisrUsers.add("01112509992 2345678912345670 10000");
@@ -19,6 +28,13 @@ public class BankMisr implements Bank {
         }
         return instance;
     }
+    /**
+     * Retrieves the current amount in the specified bank account associated with
+     * the provided credit card.
+     *
+     * @param creditcard The credit card number associated with the bank account.
+     * @return The current amount in the account, or -1 if the user is not found.
+     */
     public double getAmount(String creditcard){
         String searchString = creditcard.trim();
         int index = -1;
@@ -38,6 +54,14 @@ public class BankMisr implements Bank {
             return -1;
         }
     }
+    /**
+     * Checks the existence of a bank account based on the provided mobile number
+     * and credit card information.
+     *
+     * @param mobileNumber The mobile number associated with the bank account.
+     * @param creditCard   The credit card number associated with the bank account.
+     * @return true if the account exists, false otherwise.
+     */
     public Boolean checkExistence(String mobileNumber, String creditCard) {
         String key = mobileNumber.trim() + " " + creditCard.trim();
         for (String user : BankMisrUsers) {
@@ -49,6 +73,13 @@ public class BankMisr implements Bank {
         return false;
     }
 
+     /**
+     * Decreases the amount in the specified bank account associated with the
+     * provided credit card by the given amount.
+     *
+     * @param creditCard The credit card number associated with the bank account.
+     * @param amount     The amount to be deducted from the account.
+     */
     public void decreaseAmount(String creditCard, double amount) {
         String searchString = creditCard.trim();
         int index = -1;
@@ -74,6 +105,13 @@ public class BankMisr implements Bank {
             System.out.println("User not found with the provided mobile number and credit card combination.");
         }
     }
+    /**
+     * Increases the amount in the specified bank account associated with the
+     * provided credit card by the given amount.
+     *
+     * @param creditCard The credit card number associated with the bank account.
+     * @param amount     The amount to be added to the account.
+     */
     public void increaseAmount(String creditCard, double amount) {
         String searchString = creditCard.trim();
         int index = -1;

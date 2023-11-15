@@ -5,14 +5,24 @@ import APIs.BankMisr;
 import User.User;
 import User.UserBank;
 import User.UserDB;
+/**
+ * The Bankregistration class extends the Registration abstract class and provides
+ * specific registration logic for users in the context of banking.
+ */
 
 public class Bankregistration extends Registration{
     private String creditCard;
-
+    /**
+     * Default constructor for the Bankregistration class.
+     */
     public Bankregistration() {
         super();
     }
-
+    /**
+     * Sets the credit card for the registration, ensuring it is valid.
+     *
+     * @param creditCard The credit card number to be set.
+     */
     public void setCreditCard(String creditCard) {
         while(!validator.checkValidCreditCard(creditCard)){
             System.out.println("It is not a valid credit card number, please enter a valid credit card number:");
@@ -21,11 +31,18 @@ public class Bankregistration extends Registration{
         this.creditCard = creditCard;
     }
 
-
+    /**
+     * Gets the credit card associated with the registration.
+     *
+     * @return The credit card associated with the registration.
+     */
     public String getCreditCard() {
         return creditCard;
     }
-
+    /**
+     * Overrides the abstract register method to provide specific registration
+     * logic for banking users.
+     */
     @Override
     public void register() {
         System.out.println("-----------------Bank registration-----------------");

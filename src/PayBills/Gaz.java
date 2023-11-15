@@ -1,17 +1,29 @@
 package PayBills;
-
 import java.util.Scanner;
-
-
 import APIs.GazCompany;
 
+/**
+ * The Gaz class represents a bill for gas payments.
+ */
 public class Gaz extends Bill{
+    /**
+     * Allows the user to choose the gas company for the bill.
+     *
+     * @return The name of the chosen gas company.
+     */
+    @Override
     public String chooseCompany(){
         System.out.println("Enter company name: ");
         Scanner input = new Scanner(System.in);
         String name = input.nextLine();
         return name;
     }
+    /**
+     * Performs the payment for the gas bill.
+     *
+     * @return The payment amount.
+     */
+    @Override
     public double Pay(){
         String name = chooseCompany();
         String code = getEPaymentCode();

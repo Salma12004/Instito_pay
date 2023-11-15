@@ -2,9 +2,14 @@ package Application;
 import java.util.Scanner;
 import User.UserDB;
 
-
+/**
+ * The InstoSystem class represents the main system for InstitoPay. It provides
+ * functionality for user login, registration, and system menu display.
+ */
 public class InstoSystem {
-
+    /**
+     * Loads dummy data into the system for testing purposes.
+     */
     private void loadDummyData(){
         UserDB.getInstance().addUserBank("Ahmed", "01005181038", "Ahmed123", "1234567891234567", "BankMisr");
         UserDB.getInstance().addUserBank("Mohamed", "01112509992", "Mohamed123", "2345678912345670", "BankMisr");
@@ -23,11 +28,15 @@ public class InstoSystem {
         UserDB.getInstance().addUserWallet("Kenzy", "01112502010", "Hassan123", "EtisalatCash");
         UserDB.getInstance().addUserWallet("Marwan", "01102501223", "Khaled123", "EtisalatCash");
     }
-
+    /**
+     * Constructs an instance of the InstoSystem class and loads dummy data.
+     */
     public InstoSystem() {
         loadDummyData();
     }
-
+    /**
+     * Displays the login form, allowing users to enter their credentials and login.
+     */
     private void LoginForm(){
         System.out.println("Enter your username");
         Scanner sc = new Scanner(System.in);
@@ -39,7 +48,12 @@ public class InstoSystem {
         // displayUserMenu(login.user);
         
     }
-
+    /**
+     * Allows users to choose the type of registration (bank account or wallet provider)
+     * and initiates the registration process accordingly.
+     *
+     * @param choice The user's choice for registration type (1 for bank, 2 for wallet).
+     */
     private void chooseRegisterionType(int choice){
         if(choice==1){
             Bankregistration bank = new Bankregistration();
@@ -53,14 +67,20 @@ public class InstoSystem {
             System.out.println("Invalid choice");
         }
     }
-
+    /**
+     * Displays the registration form, allowing users to choose between bank account
+     * and wallet provider registration.
+     */
     private void RegisterForm(){
         System.out.println("Do you want to register using 1.bank account 2.wallet provider ");
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
         chooseRegisterionType(choice);
     }
-
+    /**
+     * Displays the main menu of the system, allowing users to choose between login,
+     * registration, and exit options. It also provides an option to print all users.
+     */
     public void displayMenu() {
         while(true){
             System.out.println("Welcome to InstitoPay System");
@@ -87,7 +107,6 @@ public class InstoSystem {
                 else{
                     System.out.println("Invalid choice");
                 }
-            // }
         }
     }
 
